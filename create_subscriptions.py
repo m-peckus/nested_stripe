@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
+from dotenv import load_dotenv
+import os
 import stripe
 
+load_dotenv() # take environment variable from .env
+
 # stripe API key
-stripe.api_key = "sk_test_51RKE5uQrXX9kTXGyCO5cHmoYk5fH1sk7EqQpdXnCS2QvKVC4nPw9egX87DycPupk4c0mtIustOe7ySJnUeOe623Z00k4kkd9uT"
+stripe.api_key = os.getenv("stripe_test_api_key") 
+
 
 # List all products
 products = stripe.Product.list()

@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
+from dotenv import load_dotenv
+import os
 import stripe
 
-print("stripe is ready")
+load_dotenv() # take environment variable from .env
 
 # stripe API key
+stripe.api_key = os.getenv("stripe_test_api_key") 
 
-stripe.api_key = "sk_test_51RKE5uQrXX9kTXGyCO5cHmoYk5fH1sk7EqQpdXnCS2QvKVC4nPw9egX87DycPupk4c0mtIustOe7ySJnUeOe623Z00k4kkd9uT"
 
+
+print("stripe is ready")
 # get invoices for a specific customer
 
 #customer id
