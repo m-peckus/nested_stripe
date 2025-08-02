@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Payment</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Payment Form</h1>
+    <form id="payment-form">
+        <div id="card-element"><!-- A Stripe Element will be inserted here. --></div>
+        <button id="submit">Pay</button>
+        <div id="card-errors" role="alert"></div>
+    </form>
+
+    <script>
+        // Fetch the publishable key from the server
+        fetch('/get_api_key')
+            .then(response => response.json())
+            .then(data => {
+                const stripe = Stripe(data.publishable_key); // Use the fetched publishable key
+                const elements = stripe.elements();
+                const cardElement = elements.create('card');
+                cardElement.mount('#card-element');
+
+                const form = document.getElementById('payment-form');
+                form.addEventListener('submit', async (event) => {
+                    event.preventDefault();
+
+                    const {token, error} = await stripe.createToken(cardElement);
+
+                    if (error) {
+                        // Display error.message in your UI.
+                        document.getElementById('card-errors').textContent = error.message;
+                    } else {
+                        // Send the token to your server.
+                        console.log(token.id); // Use this token ID in your server-side code
+                        // You can use fetch or another method to call your Python script with the token
+                        alert("Token generated: " + token.id);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching the publishable key:', error);
+            });
+    </script>
+</body>
+</html>
