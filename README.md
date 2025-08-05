@@ -42,6 +42,6 @@ A subscription ID is returned and displayed in an alert.
 This project uses hardcoded product/customer data for learning purposes.
 It is not intended for production without proper validation and error handling.
 
-Resources
-Stripe Subscriptions Docs
+Resources  
+Stripe Subscriptions Docs  
 Stripe API Reference
