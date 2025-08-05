@@ -25,7 +25,7 @@ remote/
 
 Here's an example of a successfully received subscription in the Stripe Dashboard:  
 
-![Subscription demo](assets/webhook-event-demo.png)
+![Subscription demo](assets/subscription_stripe.png)
 
 
 How It Works
