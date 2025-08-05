@@ -1,3 +1,6 @@
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 # Stripe Subscription Demo
 
 This project demonstrates how to create a recurring **subscription-based payment flow** using Stripe. It’s built with **Flask** on the backend and uses **Stripe.js** on the frontend to securely collect card details. The goal is to understand how to integrate Stripe subscriptions end-to-end.
