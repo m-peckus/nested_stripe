@@ -34,22 +34,17 @@ index.html fetches the publishable Stripe key and uses Stripe.js to generate a c
 On form submission, a token is created from the card data.  
 The token is sent to the backend via a POST request.  
 
-The backend:
+The backend:  
+Creates a product and recurring price  
+Creates a customer  
+Attaches the payment method  
+Creates a subscription  
+A subscription ID is returned and displayed in an alert.  
 
-Creates a product and recurring price
+## Notes  
+This project uses hardcoded product/customer data for learning purposes.  
+It is not intended for production without proper validation and error handling.  
 
-Creates a customer
-
-Attaches the payment method
-
-Creates a subscription
-
-A subscription ID is returned and displayed in an alert.
-
- Notes
-This project uses hardcoded product/customer data for learning purposes.
-It is not intended for production without proper validation and error handling.
-
-Resources  
-Stripe Subscriptions Docs  
-Stripe API Reference
+Resources    
+Stripe Subscriptions Docs    
+Stripe API Reference  
