@@ -19,21 +19,20 @@ remote/
 └── static/      
     └── favicon.ico # Favicon used by the HTML page 
 └── assets/      
-    └── project_demo.png # Demo_screenshot
-
-    ## Preview  
+    └── project_demo.png # Demo_screenshot  
+    
+## Preview  
 
 Here's an example of a successfully received subscription in the Stripe Dashboard:  
 
 ![Subscription demo](assets/subscription_stripe.png)
 
 
-How It Works
-index.html fetches the publishable Stripe key and uses Stripe.js to generate a card input field.
+## How It Works  
 
-On form submission, a token is created from the card data.
-
-The token is sent to the backend via a POST request.
+index.html fetches the publishable Stripe key and uses Stripe.js to generate a card input field.  
+On form submission, a token is created from the card data.  
+The token is sent to the backend via a POST request.  
 
 The backend:
 
