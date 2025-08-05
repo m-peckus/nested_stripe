@@ -20,9 +20,9 @@ remote/
 ├── templates/  
 │ └── index.html # Frontend for collecting card information  
 └── static/      
-    └── favicon.ico # Favicon used by the HTML page 
-└── assets/      
-    └── project_demo.png # Demo_screenshot  
+    └── favicon.ico # Favicon used by the HTML page   
+└── assets/        
+    └── project_demo.png # Demo_screenshot    
     
 ## Preview  
 
