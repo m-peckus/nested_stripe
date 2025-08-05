@@ -19,6 +19,13 @@ remote/
 └── static/      
     └── favicon.ico # Favicon used by the HTML page  
 
+    ## Preview  
+
+Here's an example of a successfully received subscription in the Stripe Dashboard:  
+
+![Subscription demo](assets/webhook-event-demo.png)
+
+
 How It Works
 index.html fetches the publishable Stripe key and uses Stripe.js to generate a card input field.
 
