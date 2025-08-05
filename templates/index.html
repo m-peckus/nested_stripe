@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stripe Payment</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico')}}" type="image/x-icon">
     <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
@@ -34,10 +35,21 @@
                         // Display error.message in your UI.
                         document.getElementById('card-errors').textContent = error.message;
                     } else {
-                        // Send the token to your server.
-                        console.log(token.id); // Use this token ID in your server-side code
-                        // You can use fetch or another method to call your Python script with the token
-                        alert("Token generated: " + token.id);
+                        // Send the token to your server to create a subscription
+                        const response = await fetch('/create_subscription', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({token: token.id}),
+                        });
+
+                        const subscriptionData = await response.json();
+                        if (response.ok) {
+                            alert("Subscription created! ID: " + subscriptionData.subscription_id);
+                        } else {
+                            alert("Error creating subscription: " + subscriptionData.error);
+                        }
                     }
                 });
             })
